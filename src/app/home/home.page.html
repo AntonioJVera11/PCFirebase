@@ -16,4 +16,18 @@
     <ion-input [(ngModel)]="piezaEditando.descripcion"></ion-input>
   </ion-item>
   <ion-button (click)="clicBotonInsertar()">Añadir pieza</ion-button>
+  <ion-button (click)="clicBotonBorrar()">Borrar pieza</ion-button>
+  <h1>LISTA DE TAREAS</h1>
+  <ion-list>
+    <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="selecPieza(documentPiezas)">
+      <ion-grid>
+        <ion-row>
+          <h2>{{documentPiezas.data.titulo}}</h2>
+        </ion-row>
+        <ion-row>
+          <p>{{documentPiezas.data.descripcion}}</p>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
 </ion-content>
