@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Piezas } from '../piezas';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class HomePage {
   piezaEditando: Piezas;
   idPiezaSelec: string;
 
-  constructor(private firestoreService: FirestoreService) {
+  constructor(private firestoreService: FirestoreService, private router: Router) {
     //Creamos una pieza vacía
     this.piezaEditando = {} as Piezas;
 
@@ -75,6 +76,10 @@ export class HomePage {
       // Limpiar datos de pantalla
       this.piezaEditando = {} as Piezas;
     })
+  }
+
+  navigateToPiezaDetalle(piezaSelec) {
+    this.router.navigate(["/piezadetalle/" + piezaSelec.id]);
   }
 
 }

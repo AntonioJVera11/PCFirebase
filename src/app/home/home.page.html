@@ -1,7 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Hardware de PC
+    Hardware de PC
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,7 +23,7 @@
   <ion-button (click)="clicBotonModificar()">Modificar pieza</ion-button>
   <h1>LISTA DE TAREAS</h1>
   <ion-list>
-    <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="selecPieza(documentPiezas)">
+    <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="navigateToPiezaDetalle(documentPiezas)">
       <ion-grid>
         <ion-row>
           <h2>{{documentPiezas.data.titulo}}</h2>
