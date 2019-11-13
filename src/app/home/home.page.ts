@@ -68,4 +68,13 @@ export class HomePage {
     this.piezaEditando.descripcion = piezaSelec.data.descripcion;
   }
 
+  clicBotonModificar() {
+    this.firestoreService.actualizar("piezas", this.idPiezaSelec, this.piezaEditando).then(() => {
+      // Actualizar la lista completa
+      this.obtenerListaPiezas();
+      // Limpiar datos de pantalla
+      this.piezaEditando = {} as Piezas;
+    })
+  }
+
 }
