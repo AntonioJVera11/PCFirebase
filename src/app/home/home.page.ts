@@ -65,8 +65,11 @@ export class HomePage {
     console.log("Pieza seleccionada: ");
     console.log(piezaSelec);
     this.idPiezaSelec = piezaSelec.id;
-    this.piezaEditando.titulo = piezaSelec.data.titulo;
-    this.piezaEditando.descripcion = piezaSelec.data.descripcion;
+    this.piezaEditando.tipo = piezaSelec.data.tipo;
+    this.piezaEditando.modelo = piezaSelec.data.modelo;
+    this.piezaEditando.fechalanzamiento = piezaSelec.data.fechalanzamiento;
+    this.piezaEditando.precio = piezaSelec.data.precio;
+    this.piezaEditando.valoracion = piezaSelec.data.valoracion;
   }
 
   clicBotonModificar() {

@@ -1,11 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>piezadetalle</ion-title>
+    <ion-title>Detalle de la pieza seleccionada</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-item>
-      Mi ID es : {{ id }}
+      El ID del producto es : {{ id }}
     </ion-item>
+    <ion-item>
+      <ion-label><strong>Tipo: </strong></ion-label>
+      <ion-input [(ngModel)]="document.data.tipo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><strong>Modelo: </strong></ion-label>
+      <ion-input [(ngModel)]="document.data.modelo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><strong>Fecha de lanzamiento: </strong></ion-label>
+      <ion-input [(ngModel)]="document.data.fechalanzamiento"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><strong>Precio: </strong></ion-label>
+      <ion-input [(ngModel)]="document.data.precio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><strong>Valoración: </strong></ion-label>
+      <ion-input [(ngModel)]="document.data.valoracion"></ion-input>
+    </ion-item>
+    <ion-button (click)="clicBotonInsertar()">Añadir pieza</ion-button>
+    <ion-button (click)="clicBotonBorrar()">Borrar pieza</ion-button>
+    <ion-button (click)="clicBotonModificar()">Modificar pieza</ion-button>
 </ion-content>

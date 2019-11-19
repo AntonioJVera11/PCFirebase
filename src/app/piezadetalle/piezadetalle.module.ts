@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { PiezadetallePage } from './piezadetalle.page';
 
+
 const routes: Routes = [
   {
     path: '',

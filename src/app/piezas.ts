@@ -1,4 +1,9 @@
 export interface Piezas {
-    titulo: string;
-    descripcion: string;
+    tipo: string;
+    modelo: string;
+    fechalanzamiento: string;
+    precio: number;
+    valoracion: number;
 }
+
+

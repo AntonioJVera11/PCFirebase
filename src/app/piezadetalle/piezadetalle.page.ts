@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Piezas } from '../piezas';
+import { FirestoreService } from '../firestore.service';
 
 @Component({
   selector: 'app-piezadetalle',
@@ -8,12 +10,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PiezadetallePage implements OnInit {
 
+  document: any = {
+    id: "",
+    data: {} as Piezas
+  }
+
   id=null;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    this.firestoreService.consultarPorId("piezas", this.id).subscribe((resultado) => {
+    // Preguntar si se hay encontrado un document con ese ID
+    if(resultado.payload.data() != null) {
+      this.document.id = resultado.payload.id
+      this.document.data = resultado.payload.data();
+    } else {
+      // No se ha encontrado un document con ese ID. Vaciar los datos que hubiera
+      this.document.data = {} as Piezas;
+    } 
+  });
   }
 
 }
