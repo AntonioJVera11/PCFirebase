@@ -16,8 +16,12 @@ export class PiezadetallePage implements OnInit {
   }
 
   id=null;
+  piezaEditando: Piezas;
 
-  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService) { }
+  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService) {
+    this.piezaEditando = {} as Piezas;
+
+  }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
@@ -31,6 +35,20 @@ export class PiezadetallePage implements OnInit {
       this.document.data = {} as Piezas;
     } 
   });
+  }
+
+  clicBotonBorrar() {
+    this.firestoreService.borrar("piezas", this.id).then(() => {
+      // Limpiar datos de pantalla
+      this.piezaEditando = {} as Piezas;
+    })
+  }
+
+  clicBotonModificar() {
+    this.firestoreService.actualizar("piezas", this.id, this.piezaEditando).then(() => {
+      // Limpiar datos de pantalla
+      this.piezaEditando = {} as Piezas;
+    })
   }
 
 }

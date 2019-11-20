@@ -40,15 +40,6 @@ export class HomePage {
     });
   }
 
-  clicBotonBorrar() {
-    this.firestoreService.borrar("piezas", this.idPiezaSelec).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaPiezas();
-      // Limpiar datos de pantalla
-      this.piezaEditando = {} as Piezas;
-    })
-  }
-
   obtenerListaPiezas(){
     this.firestoreService.consultar("piezas").subscribe((resultadoConsultaPiezas) => {
       this.arrayColeccionPiezas = [];
