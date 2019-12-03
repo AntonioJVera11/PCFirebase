@@ -45,10 +45,11 @@ export class PiezadetallePage implements OnInit {
   }
 
   clicBotonModificar() {
-    this.firestoreService.actualizar("piezas", this.id, this.piezaEditando).then(() => {
+    this.firestoreService.actualizar("piezas", this.id, this.document.data).then(() => {
       // Limpiar datos de pantalla
-      this.piezaEditando = {} as Piezas;
+      this.document.data = {} as Piezas;
     })
   }
+    
 
 }

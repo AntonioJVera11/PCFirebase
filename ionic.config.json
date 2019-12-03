@@ -1,5 +1,7 @@
 {
   "name": "piezaspc",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
