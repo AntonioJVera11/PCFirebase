@@ -4,30 +4,42 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscren>
+  <div>
+    <ion-text color="medium">Id: {{ id }}</ion-text>
     <ion-item>
-      El ID del producto es : {{ id }}
+      <ion-label position="floating"><strong>Tipo: </strong></ion-label>
+      <ion-input required [(ngModel)]="document.data.tipo"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label><strong>Tipo: </strong></ion-label>
-      <ion-input [(ngModel)]="document.data.tipo"></ion-input>
+      <ion-label position="floating"><strong>Modelo: </strong></ion-label>
+      <ion-input required [(ngModel)]="document.data.modelo"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label><strong>Modelo: </strong></ion-label>
-      <ion-input [(ngModel)]="document.data.modelo"></ion-input>
+      <ion-label position="floating"><strong>Fecha de lanzamiento: </strong></ion-label>
+      <ion-input required [(ngModel)]="document.data.fechalanzamiento"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label><strong>Fecha de lanzamiento: </strong></ion-label>
-      <ion-input [(ngModel)]="document.data.fechalanzamiento"></ion-input>
+      <ion-label position="floating"><strong>Precio: </strong></ion-label>
+      <ion-input required [(ngModel)]="document.data.precio"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label><strong>Precio: </strong></ion-label>
-      <ion-input [(ngModel)]="document.data.precio"></ion-input>
+      <ion-label position="floating"><strong>Valoración: </strong></ion-label>
+      <ion-input required [(ngModel)]="document.data.valoracion"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label><strong>Valoración: </strong></ion-label>
-      <ion-input [(ngModel)]="document.data.valoracion"></ion-input>
-    </ion-item>
-    <ion-button (click)="clicBotonBorrar()">Borrar pieza</ion-button>
-    <ion-button (click)="clicBotonModificar()">Guardar pieza</ion-button>
+    <br>
+    <div>
+      <ion-buttons>
+        <ion-button *ngIf="id == 'nuevo'" (click)="presentAlertConfirmInsertar()">
+          <ion-icon name="save" size="large"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="id != 'nuevo'" (click)="presentAlertConfirmModificar()">
+          <ion-icon name="save" size="large"></ion-icon>
+        </ion-button>
+        <ion-button (click)="clicBotonBorrar()">
+          <ion-icon name="trash" size="large"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </div>
 </ion-content>

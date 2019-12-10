@@ -14,8 +14,12 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   piezaEditando: Piezas;
+  arrayColeccionPiezas: any = [{
+    id: "",
+    data: {} as Piezas
+  }];
   idPiezaSelec: string;
-
+  
   constructor(private firestoreService: FirestoreService, private router: Router) {
     //Creamos una pieza vacía
     this.piezaEditando = {} as Piezas;
@@ -25,19 +29,8 @@ export class HomePage {
   }
 
   
-  arrayColeccionPiezas: any = [{
-    id: "",
-    data: {} as Piezas
-   }];
-
-
-  clicBotonInsertar() {
-    this.firestoreService.insertar("piezas", this.piezaEditando).then(() => {
-      console.log('Pieza creada correctamente!');
-      this.piezaEditando = {} as Piezas;
-    }, (error) => {
-      console.error(error);
-    });
+  navigateToPiezaDetalle(id) {
+    this.router.navigate(["/piezadetalle/" + id]);
   }
 
   obtenerListaPiezas(){
@@ -52,6 +45,15 @@ export class HomePage {
     });
   }
 
+  clicBotonInsertar() {
+    this.firestoreService.insertar("piezas", this.piezaEditando).then(() => {
+      console.log('Pieza creada correctamente!');
+      this.piezaEditando = {} as Piezas;
+    }, (error) => {
+      console.error(error);
+    });
+  }
+
   selecPieza(piezaSelec) {
     console.log("Pieza seleccionada: ");
     console.log(piezaSelec);
@@ -63,17 +65,12 @@ export class HomePage {
     this.piezaEditando.valoracion = piezaSelec.data.valoracion;
   }
 
-  clicBotonModificar() {
-    this.firestoreService.actualizar("piezas", this.idPiezaSelec, this.piezaEditando).then(() => {
-      // Actualizar la lista completa
+  clicBotonBorrar() {
+    this.firestoreService.borrar("piezas", this.idPiezaSelec).then(() => {
+      //Actualizar la lista completa
       this.obtenerListaPiezas();
       // Limpiar datos de pantalla
       this.piezaEditando = {} as Piezas;
     })
   }
-
-  navigateToPiezaDetalle(piezaSelec) {
-    this.router.navigate(["/piezadetalle/" + piezaSelec.id]);
-  }
-
 }
