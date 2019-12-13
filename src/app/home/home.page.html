@@ -9,7 +9,7 @@
 <ion-content padding>
   <h1>LISTA DE PIEZAS</h1>
   <ion-list>
-    <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="navigateToPiezaDetalle(documentPiezas)">
+    <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="navigateToPiezaDetalle(documentPiezas.id)">
       <ion-grid>
         <ion-row>
           <h2><ion-icon name="laptop"></ion-icon> {{documentPiezas.data.tipo}}</h2>
@@ -24,7 +24,7 @@
     </ion-item>
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="navigateToPiezaDetalle('new')" color="primary">
+    <ion-fab-button (click)="navigateToPiezaDetalle('nuevo')" color="primary">
       <ion-icon name="add-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>

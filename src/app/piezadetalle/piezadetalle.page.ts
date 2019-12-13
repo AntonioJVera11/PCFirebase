@@ -70,7 +70,7 @@ export class PiezadetallePage implements OnInit {
     this.router.navigate(["/"]);
   }
 
-  async presentAlertConfirmInsertar() {
+  async alertaInsertar() {
 		const alert = await this.alertController.create({
 			header: 'Confirmar',
 			message: '¿Quieres añadir la pieza <strong>'+ this.document.data.modelo +'</strong>?',
@@ -96,6 +96,7 @@ export class PiezadetallePage implements OnInit {
 					handler: () => {
 						console.log('Confirm Okay');
 						this.clicBotonInsertar();
+						this.navigateToInicio();
 					}
 				}
 			]
@@ -104,7 +105,7 @@ export class PiezadetallePage implements OnInit {
 		await alert.present();
   }
   
-  async presentAlertConfirmModificar() {
+  async alertaModificar() {
 		const alert = await this.alertController.create({
 			header: 'Confirmar',
 			message: '¿Quieres confirmar los cambios en la pieza <strong>'+ this.document.data.modelo +'</strong>?',
@@ -130,6 +131,7 @@ export class PiezadetallePage implements OnInit {
 					handler: () => {
 						console.log('Confirm Okay');
 						this.clicBotonModificar();
+						this.navigateToInicio();
 					}
 				}
 			]
@@ -138,7 +140,7 @@ export class PiezadetallePage implements OnInit {
 		await alert.present();
   }
   
-  async presentAlertConfirmBorrar() {
+  async alertaBorrar() {
 		const alert = await this.alertController.create({
 			header: 'Confirmar',
 			message: '¿Quieres borrar la pieza <strong>'+ this.document.data.modelo +'</strong>?',
@@ -160,10 +162,11 @@ export class PiezadetallePage implements OnInit {
 					}
 				},
 				{
-					text: 'Guardar',
+					text: 'Borrar',
 					handler: () => {
 						console.log('Confirm Okay');
 						this.clicBotonBorrar();
+						this.navigateToInicio();
 					}
 				}
 			]

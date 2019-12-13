@@ -30,13 +30,13 @@
     <br>
     <div>
       <ion-buttons>
-        <ion-button *ngIf="id == 'nuevo'" (click)="presentAlertConfirmInsertar()">
+        <ion-button *ngIf="id == 'nuevo'" (click)="alertaInsertar()">
           <ion-icon name="save" size="large"></ion-icon>
         </ion-button>
-        <ion-button *ngIf="id != 'nuevo'" (click)="presentAlertConfirmModificar()">
+        <ion-button *ngIf="id != 'nuevo'" (click)="alertaModificar()">
           <ion-icon name="save" size="large"></ion-icon>
         </ion-button>
-        <ion-button (click)="clicBotonBorrar()">
+        <ion-button (click)="alertaBorrar()">
           <ion-icon name="trash" size="large"></ion-icon>
         </ion-button>
       </ion-buttons>

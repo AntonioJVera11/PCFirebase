@@ -58,6 +58,7 @@ export class HomePage {
     console.log("Pieza seleccionada: ");
     console.log(piezaSelec);
     this.idPiezaSelec = piezaSelec.id;
+    console.log(this.idPiezaSelec);
     this.piezaEditando.tipo = piezaSelec.data.tipo;
     this.piezaEditando.modelo = piezaSelec.data.modelo;
     this.piezaEditando.fechalanzamiento = piezaSelec.data.fechalanzamiento;
