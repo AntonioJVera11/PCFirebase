@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 
 
 export class HomePage {
-
   piezaEditando: Piezas;
   arrayColeccionPiezas: any = [{
     id: "",
@@ -28,9 +27,20 @@ export class HomePage {
     this.obtenerListaPiezas();
   }
 
-  
   navigateToPiezaDetalle(id) {
     this.router.navigate(["/piezadetalle/" + id]);
+  }
+
+  navigateToConfigurador() {
+    this.router.navigate(["/configurador/"]);
+  }
+
+  navigateToInformacion() {
+    this.router.navigate(["/informacion/"]);
+  }
+
+  navigateToAbout() {
+    this.router.navigate(["/about/"]);
   }
 
   obtenerListaPiezas(){

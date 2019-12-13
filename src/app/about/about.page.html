@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="navigateToInicio()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Acerca de
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Somos una empresa líder en hardware de PC</h1>
+  <p>Ofrecemos una calidad de servicio incomparable para nuestros clientes</p>
+  <ion-img width="80" height="80" src="https://i.ytimg.com/vi/ACo243C5tNk/maxresdefault.jpg"></ion-img>
+</ion-content>
+<ion-footer class="pie">
+  <ion-toolbar>
+    <ion-buttons class="botones-footer">
+      <ion-button class="button-footer" (click)=navigateToConfigurador()>
+        <ion-icon name="laptop" size="large"></ion-icon>
+      </ion-button>
+      <ion-button class="button-footer" (click)=navigateToInformacion()>
+        <ion-icon name="watch" size="large"></ion-icon>
+      </ion-button>
+      <ion-button class="button-footer" (click)=navigateToAbout()>
+        <ion-icon name="today" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

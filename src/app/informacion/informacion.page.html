@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="navigateToInicio()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Información
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Mantente informado de las noticias de hardware</h1>
+  <p>Intel fracasa mientras ve que AMD consigue un ratio de venta de 9-1</p>
+  <ion-img width="80" height="80" src="https://hardzone.es/app/uploads-hardzone.es/2019/07/Intel-vs-AMD.jpg"></ion-img>
+</ion-content>
+<ion-footer class="pie">
+  <ion-toolbar>
+    <ion-buttons class="botones-footer">
+      <ion-button class="button-footer" (click)=navigateToConfigurador()>
+        <ion-icon name="laptop" size="large"></ion-icon>
+      </ion-button>
+      <ion-button class="button-footer" (click)=navigateToInformacion()>
+        <ion-icon name="watch" size="large"></ion-icon>
+      </ion-button>
+      <ion-button class="button-footer" (click)=navigateToAbout()>
+        <ion-icon name="today" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
