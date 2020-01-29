@@ -54,6 +54,8 @@ export class HomePage {
       })
     });
   }
+  
+  
 
   clicBotonInsertar() {
     this.firestoreService.insertar("piezas", this.piezaEditando).then(() => {

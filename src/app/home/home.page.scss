@@ -13,7 +13,12 @@ ion-title {
 
 @media (orientation: landscape) {
     .pie {
-        height: 0;
-        visibility: collapse;
+        justify-content: center;
+    }
+}
+
+@media (orientation: portrait) {
+    .button-footer {
+        font-size: 0;
     }
 }

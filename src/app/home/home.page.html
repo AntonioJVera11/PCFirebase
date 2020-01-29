@@ -12,13 +12,19 @@
     <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="navigateToPiezaDetalle(documentPiezas.id)">
       <ion-grid>
         <ion-row>
-          <h2><ion-icon name="laptop"></ion-icon> {{documentPiezas.data.tipo}}</h2>
+          <h2>
+            <ion-icon name="laptop"></ion-icon> {{documentPiezas.data.tipo}}
+          </h2>
         </ion-row>
         <ion-row>
-          <p><ion-icon name="keypad"></ion-icon> {{documentPiezas.data.modelo}}</p>
+          <p>
+            <ion-icon name="keypad"></ion-icon> {{documentPiezas.data.modelo}}
+          </p>
         </ion-row>
         <ion-row>
-          <p><ion-icon name="star-outline"></ion-icon> {{documentPiezas.data.valoracion}}</p>
+          <p>
+            <ion-icon name="star-outline"></ion-icon> {{documentPiezas.data.valoracion}}
+          </p>
         </ion-row>
       </ion-grid>
     </ion-item>
@@ -33,13 +39,13 @@
   <ion-toolbar>
     <ion-buttons class="botones-footer">
       <ion-button class="button-footer" (click)=navigateToConfigurador()>
-        <ion-icon name="laptop" size="large"></ion-icon>
+        <ion-icon name="laptop" size="large"></ion-icon>Configurador
       </ion-button>
       <ion-button class="button-footer" (click)=navigateToInformacion()>
-        <ion-icon name="watch" size="large"></ion-icon>
+        <ion-icon name="watch" size="large"></ion-icon>Información
       </ion-button>
       <ion-button class="button-footer" (click)=navigateToAbout()>
-        <ion-icon name="today" size="large"></ion-icon>
+        <ion-icon name="today" size="large"></ion-icon>Acerca de
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
