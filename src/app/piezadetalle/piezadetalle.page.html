@@ -6,6 +6,10 @@
 
 <ion-content fullscren>
   <div>
+    <ion-item>
+      <ion-label position="fixed"><strong>Imagen: </strong></ion-label>
+      <img [src]="document.data.foto" alt="" width="100px" height="170px">
+    </ion-item>
     <ion-text hidden color="medium">Id: {{ id }}</ion-text>
     <ion-item>
       <ion-label position="floating"><strong>Tipo: </strong></ion-label>
@@ -42,7 +46,6 @@
         <ion-button (click)="uploadImagePicker()">
           <ion-icon name="cloud-upload" size="large"></ion-icon>
         </ion-button>
-
       </ion-buttons>
     </div>
   </div>

@@ -4,6 +4,7 @@ export interface Piezas {
     fechalanzamiento: string;
     precio: number;
     valoracion: number;
+    foto: string;
 }
 
 
