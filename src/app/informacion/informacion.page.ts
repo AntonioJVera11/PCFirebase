@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @Component({
   selector: 'app-informacion',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class InformacionPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private callNumber: CallNumber) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,12 @@ export class InformacionPage implements OnInit {
 
   navigateToAbout() {
     this.router.navigate(["/about/"]);
+  }
+
+  llamar() {
+    this.callNumber.callNumber("123456789", true)
+      .then(res => console.log('Launched dialer!', res))
+      .catch(err => console.log('Error launching dialer', err));
   }
 
 }

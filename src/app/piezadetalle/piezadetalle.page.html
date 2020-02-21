@@ -6,7 +6,7 @@
 
 <ion-content fullscren>
   <div>
-    <ion-item>
+    <ion-item *ngIf="document.data.foto != undefined">
       <ion-label position="fixed"><strong>Imagen: </strong></ion-label>
       <img [src]="document.data.foto" alt="" width="100px" height="170px">
     </ion-item>

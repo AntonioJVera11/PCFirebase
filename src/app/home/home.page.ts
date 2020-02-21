@@ -15,15 +15,17 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 export class HomePage {
   quotes: any;
-  
+
   piezaEditando: Piezas;
   arrayColeccionPiezas: any = [{
     id: "",
     data: {} as Piezas
   }];
   idPiezaSelec: string;
+
+  private  apiUrl :string = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=10"; 
   
-  constructor(private firestoreService: FirestoreService, private router: Router) {
+  constructor(private firestoreService: FirestoreService, private router: Router, private socialSharing: SocialSharing) {
     //Creamos una pieza vacía
     this.piezaEditando = {} as Piezas;
 
