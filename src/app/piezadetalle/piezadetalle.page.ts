@@ -4,6 +4,7 @@ import { Piezas } from '../piezas';
 import { FirestoreService } from '../firestore.service';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @Component({
   selector: 'app-piezadetalle',
@@ -27,7 +28,8 @@ export class PiezadetallePage implements OnInit {
 	public alertController: AlertController,
 	private loadingController: LoadingController,
 	private toastController: ToastController,
-	private imagePicker: ImagePicker) {
+	private imagePicker: ImagePicker,
+	private socialSharing: SocialSharing) {
       this.piezaEditando = {} as Piezas;
       this.id = this.activatedRoute.snapshot.paramMap.get("id");
       this.firestoreService.consultarPorId("piezas", this.id).subscribe((resultado) => {
@@ -251,5 +253,47 @@ export class PiezadetallePage implements OnInit {
 			}, (err) => {
 				console.log(err);
 			});
+	}
+
+	
+	componerMsg(){
+		let fechaHora = new Date(this.document.data.fechaHora);
+
+		let horaInicial = new Date(fechaHora.getTime());
+		let horaFinal = new Date(fechaHora.getTime() + this.document.data.duracion*60000);
+		
+		let fechaStr =  fechaHora.toLocaleDateString("es-ES");
+		let horaIncialStr = horaInicial.toLocaleTimeString("es-ES",{hour: '2-digit', minute: '2-digit'});
+		let horaFinalStr = horaFinal.toLocaleTimeString("es-ES",{hour: '2-digit', minute: '2-digit'});
+		
+
+		var msg = 'Evento: ' + this.document.data.nombre + ' por ' + this.document.data.ponente + '\n'
+		+ 'En el día ' + fechaStr  + ' a las ' + horaIncialStr + ' hasta las ' + horaFinalStr + ' en ' + this.document.data.direccion;
+		return msg;
+
+	}
+
+	regularShare(){
+		
+		let msg = this.componerMsg();
+		// console.log(msg);
+
+		this.socialSharing.share(msg, null, null, null);
+	}
+
+	twitterShare(){
+		
+		let msg = this.componerMsg();
+		// console.log(msg);
+
+		this.socialSharing.shareViaTwitter(msg, null, null);
+	}
+
+	whatsappShare(){
+		
+		let msg = this.componerMsg();
+		// console.log(msg);
+
+		this.socialSharing.shareViaWhatsApp(msg, null, null);
 	}
 }

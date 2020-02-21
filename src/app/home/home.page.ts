@@ -3,6 +3,8 @@ import { FirestoreService } from '../firestore.service';
 import { Piezas } from '../piezas';
 import { Router } from '@angular/router';
 
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,8 @@ import { Router } from '@angular/router';
 
 
 export class HomePage {
+  quotes: any;
+  
   piezaEditando: Piezas;
   arrayColeccionPiezas: any = [{
     id: "",
