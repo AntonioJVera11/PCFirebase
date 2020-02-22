@@ -43,9 +43,7 @@ export class HomePage {
   }
 
   navigateToPiezaDetalle(id) {
-    if (this.userUID !== ""){
     this.router.navigate(["/piezadetalle/" + id]);
-    }
   }
 
   navigateToConfigurador() {

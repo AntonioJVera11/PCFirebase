@@ -13,37 +13,37 @@
     <ion-text hidden color="medium">Id: {{ id }}</ion-text>
     <ion-item>
       <ion-label position="floating"><strong>Tipo: </strong></ion-label>
-      <ion-input required [(ngModel)]="document.data.tipo"></ion-input>
+      <ion-input [disabled]="userUID === ''" required [(ngModel)]="document.data.tipo"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating"><strong>Modelo: </strong></ion-label>
-      <ion-input required [(ngModel)]="document.data.modelo"></ion-input>
+      <ion-input [disabled]="userUID === ''" required [(ngModel)]="document.data.modelo"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating"><strong>Fecha de lanzamiento: </strong></ion-label>
-      <ion-input required [(ngModel)]="document.data.fechalanzamiento"></ion-input>
+      <ion-input [disabled]="userUID === ''" required [(ngModel)]="document.data.fechalanzamiento"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating"><strong>Precio: </strong></ion-label>
-      <ion-input required [(ngModel)]="document.data.precio"></ion-input>
+      <ion-input [disabled]="userUID === ''" required [(ngModel)]="document.data.precio"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating"><strong>Valoración: </strong></ion-label>
-      <ion-input required [(ngModel)]="document.data.valoracion"></ion-input>
+      <ion-input [disabled]="userUID === ''" required [(ngModel)]="document.data.valoracion"></ion-input>
     </ion-item>
     <br>
     <div>
       <ion-buttons>
-        <ion-button *ngIf="id == 'nuevo'" (click)="alertaInsertar()">
-          <ion-icon name="save" size="large"></ion-icon>
+        <ion-button *ngIf="id == 'new' && userUID !== ''" (click)="alertaInsertar()">
+          <ion-icon name="save"></ion-icon>
         </ion-button>
-        <ion-button *ngIf="id != 'nuevo'" (click)="alertaModificar()">
-          <ion-icon name="save" size="large"></ion-icon>
+        <ion-button *ngIf="id != 'new' && userUID !== ''" (click)="alertaModificar()">
+          <ion-icon name="save"></ion-icon>
         </ion-button>
-        <ion-button (click)="alertaBorrar()">
-          <ion-icon name="trash" size="large"></ion-icon>
+        <ion-button *ngIf="userUID !== ''" (click)="alertaBorrar()">
+          <ion-icon name="trash"></ion-icon>
         </ion-button>
-        <ion-button (click)="uploadImagePicker()">
+        <ion-button [disabled]="userUID === ''" (click)="uploadImagePicker()">
           <ion-icon name="cloud-upload" size="large"></ion-icon>
         </ion-button>
       </ion-buttons>

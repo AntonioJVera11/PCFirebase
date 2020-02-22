@@ -5,6 +5,8 @@ import { FirestoreService } from '../firestore.service';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AuthService } from '../services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-piezadetalle',
@@ -19,6 +21,10 @@ export class PiezadetallePage implements OnInit {
     data: {} as Piezas
   }
 
+  userEmail: String = "";
+	userUID: String = "";
+	isLogged: boolean
+
   id=null;
   piezaEditando: Piezas;
 
@@ -29,7 +35,9 @@ export class PiezadetallePage implements OnInit {
 	private loadingController: LoadingController,
 	private toastController: ToastController,
 	private imagePicker: ImagePicker,
-	private socialSharing: SocialSharing) {
+	private socialSharing: SocialSharing,
+	private authService: AuthService,
+	public afAuth: AngularFireAuth) {
       this.piezaEditando = {} as Piezas;
       this.id = this.activatedRoute.snapshot.paramMap.get("id");
       this.firestoreService.consultarPorId("piezas", this.id).subscribe((resultado) => {
@@ -296,4 +304,15 @@ export class PiezadetallePage implements OnInit {
 
 		this.socialSharing.shareViaWhatsApp(msg, null, null);
 	}
+
+	ionViewDidEnter() {
+		this.isLogged = false;
+		this.afAuth.user.subscribe(user => {
+		  if(user){
+			this.userEmail = user.email;
+			this.userUID = user.uid;
+			this.isLogged = true;
+		  }
+		})
+	  }
 }
