@@ -11,8 +11,25 @@
 
 <ion-content padding>
   <h1>Somos una empresa líder en hardware de PC</h1>
-  <p>Ofrecemos una calidad de servicio incomparable para nuestros clientes</p>
-  <ion-img width="80" height="80" src="https://i.ytimg.com/vi/ACo243C5tNk/maxresdefault.jpg"></ion-img>
+  <p>Puedes encontrarnos en la avenida Herrera Oria</p>
+  <!-- <img width="200" height="200" src="https://i.ytimg.com/vi/ACo243C5tNk/maxresdefault.jpg"> -->
+</ion-content>
+<ion-content>
+  <div id="mapId" style="height:200px"></div>
+  <ion-item style="cursor: pointer" (click)="locatePosition()">
+    <ion-button fill="clear">
+      <ion-icon slot="start" name="map"></ion-icon>
+      Locate Position
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-icon slot="start" name="locate"></ion-icon>
+    <ion-label position="stacked">Address</ion-label>
+    <ion-textarea [(ngModel)]="address" type="text" style="margin-top:20px;">
+    </ion-textarea>
+  </ion-item>
+  <ion-button shape="round" expand="block" (click)="confirmPickupLocation()">
+    Confirm Pickup Location</ion-button>
 </ion-content>
 <ion-footer class="pie">
   <ion-toolbar>
