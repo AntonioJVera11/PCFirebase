@@ -20,10 +20,14 @@ export class AboutPage implements OnInit {
       this.loadMap();
     }
    // The below function is added
-   loadMap(){this.map = new Map("mapId").setView([36.6772,-5.4461], 14);
-   tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-   { attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY- SA</a>'})
-   .addTo(this.map); // This line is added to add the Tile Layer to our map
+   loadMap() {
+    this.map = new Map("mapId").setView([36.6772, -5.4461], 15);
+    tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      { attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY- SA</a>' })
+      .addTo(this.map); 
+      
+      this.newMarker = marker([36.6772,-5.4461], {draggable: 
+        true}).addTo(this.map);
   }
 
   ngOnInit() {
