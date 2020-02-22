@@ -3,10 +3,16 @@
     <ion-title>
       Hardware de PC
     </ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button title="Cerrar sesión" *ngIf="userUID !== ''" (click)="logout()"><ion-icon name="log-out"></ion-icon></ion-button>
+      <ion-button title="Iniciar Sesión" *ngIf="userUID == ''" (click)="navigateToLogin()"><ion-icon name="log-in"></ion-icon></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content fullscreen>
+  <p hidden>{{ userUID }}</p>
   <h1>LISTA DE PIEZAS</h1>
   <ion-list>
     <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="navigateToPiezaDetalle(documentPiezas.id)">
