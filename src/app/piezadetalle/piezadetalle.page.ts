@@ -58,7 +58,7 @@ export class PiezadetallePage implements OnInit {
   clicBotonBorrar() {
     this.firestoreService.borrar("piezas", this.id).then(() => {
       // Limpiar datos de pantalla
-      this.piezaEditando = {} as Piezas;
+      this.document.data = {} as Piezas;
     })
     this.navigateToInicio();
   }
@@ -66,7 +66,7 @@ export class PiezadetallePage implements OnInit {
   clicBotonInsertar() {
     this.firestoreService.insertar("piezas", this.document.data).then(() => {
       console.log('Pieza creada correctamente!');
-      this.piezaEditando = {} as Piezas;
+      this.document.data = {} as Piezas;
     }, (error) => {
       console.error(error);
     });

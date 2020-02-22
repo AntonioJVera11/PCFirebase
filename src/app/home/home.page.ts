@@ -69,17 +69,6 @@ export class HomePage {
       })
     });
   }
-  
-  
-
-  clicBotonInsertar() {
-    this.firestoreService.insertar("piezas", this.piezaEditando).then(() => {
-      console.log('Pieza creada correctamente!');
-      this.piezaEditando = {} as Piezas;
-    }, (error) => {
-      console.error(error);
-    });
-  }
 
   selecPieza(piezaSelec) {
     console.log("Pieza seleccionada: ");
@@ -91,15 +80,7 @@ export class HomePage {
     this.piezaEditando.fechalanzamiento = piezaSelec.data.fechalanzamiento;
     this.piezaEditando.precio = piezaSelec.data.precio;
     this.piezaEditando.valoracion = piezaSelec.data.valoracion;
-  }
-
-  clicBotonBorrar() {
-    this.firestoreService.borrar("piezas", this.idPiezaSelec).then(() => {
-      //Actualizar la lista completa
-      this.obtenerListaPiezas();
-      // Limpiar datos de pantalla
-      this.piezaEditando = {} as Piezas;
-    })
+    this.piezaEditando.foto = piezaSelec.data.foto;
   }
 
   ionViewDidEnter() {

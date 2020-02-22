@@ -34,10 +34,10 @@
     <br>
     <div>
       <ion-buttons>
-        <ion-button *ngIf="id == 'new' && userUID !== ''" (click)="alertaInsertar()">
+        <ion-button *ngIf="id == 'nuevo' && userUID !== ''" (click)="alertaInsertar()">
           <ion-icon name="save"></ion-icon>
         </ion-button>
-        <ion-button *ngIf="id != 'new' && userUID !== ''" (click)="alertaModificar()">
+        <ion-button *ngIf="id != 'nuevo' && userUID !== ''" (click)="alertaModificar()">
           <ion-icon name="save"></ion-icon>
         </ion-button>
         <ion-button *ngIf="userUID !== ''" (click)="alertaBorrar()">
