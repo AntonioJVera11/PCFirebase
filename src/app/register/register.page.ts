@@ -61,4 +61,8 @@ export class RegisterPage implements OnInit {
     this.router.navigate(["/login"]);
   }
 
+  navigateToInicio() {
+    this.router.navigate(["/"]);
+  }
+
 }

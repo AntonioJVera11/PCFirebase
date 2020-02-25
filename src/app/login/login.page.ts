@@ -57,4 +57,8 @@ export class LoginPage {
   goRegisterPage(){
     this.router.navigate(["/register"]);
   }
+
+  navigateToInicio() {
+    this.router.navigate(["/"]);
+  }
 }

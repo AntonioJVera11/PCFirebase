@@ -31,7 +31,7 @@ export class InformacionPage implements OnInit {
   }
 
   llamar() {
-    this.callNumber.callNumber("123456789", true)
+    this.callNumber.callNumber("652608248", true)
       .then(res => console.log('Launched dialer!', res))
       .catch(err => console.log('Error launching dialer', err));
   }
