@@ -266,20 +266,9 @@ export class PiezadetallePage implements OnInit {
 
 	
 	componerMsg(){
-		let fechaHora = new Date(this.document.data.fechaHora);
-
-		let horaInicial = new Date(fechaHora.getTime());
-		let horaFinal = new Date(fechaHora.getTime() + this.document.data.duracion*60000);
-		
-		let fechaStr =  fechaHora.toLocaleDateString("es-ES");
-		let horaIncialStr = horaInicial.toLocaleTimeString("es-ES",{hour: '2-digit', minute: '2-digit'});
-		let horaFinalStr = horaFinal.toLocaleTimeString("es-ES",{hour: '2-digit', minute: '2-digit'});
-		
-
 		var msg = 'La pieza de tipo ' + this.document.data.tipo + ' y modelo ' + this.document.data.modelo + '\n'
 		+ 'ha recibido una valoración de ' + this.document.data.valoracion  + ' por su salida a mercado en ' + this.document.data.fechalanzamiento + ' por el precio de ' + this.document.data.precio + '€. Enviado desde la app PC Hardware de Antonio Juan Vera Muñoz';
 		return msg;
-
 	}
 
 	regularShare(){
