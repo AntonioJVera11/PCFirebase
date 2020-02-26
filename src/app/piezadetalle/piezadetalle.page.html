@@ -24,11 +24,11 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating"><strong>Fecha de lanzamiento: </strong></ion-label>
-      <ion-input [disabled]="userUID === ''" required [(ngModel)]="document.data.fechalanzamiento"></ion-input>
+      <ion-datetime [disabled]="userUID === ''" required [(ngModel)]="document.data.fechalanzamiento"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label position="floating"><strong>Precio: </strong></ion-label>
-      <ion-input [disabled]="userUID === ''" required [(ngModel)]="document.data.precio"></ion-input>
+      <ion-input type="number" [disabled]="userUID === ''" required [(ngModel)]="document.data.precio"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating"><strong>Valoración: </strong></ion-label>
@@ -57,6 +57,9 @@
         </ion-button>
         <ion-button (click)="whatsappShare()">
           <ion-icon name="logo-whatsapp"></ion-icon>
+        </ion-button>
+        <ion-button (click)="twitterShare()">
+          <ion-icon name="logo-twitter"></ion-icon>
         </ion-button>
       </ion-buttons>
     </div>

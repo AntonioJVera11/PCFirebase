@@ -275,8 +275,8 @@ export class PiezadetallePage implements OnInit {
 		let horaFinalStr = horaFinal.toLocaleTimeString("es-ES",{hour: '2-digit', minute: '2-digit'});
 		
 
-		var msg = 'Evento: ' + this.document.data.nombre + ' por ' + this.document.data.ponente + '\n'
-		+ 'En el día ' + fechaStr  + ' a las ' + horaIncialStr + ' hasta las ' + horaFinalStr + ' en ' + this.document.data.direccion;
+		var msg = 'La pieza de tipo ' + this.document.data.tipo + ' y modelo ' + this.document.data.modelo + '\n'
+		+ 'ha recibido una valoración de ' + this.document.data.valoracion  + ' por su salida a mercado en ' + this.document.data.fechalanzamiento + ' por el precio de ' + this.document.data.precio + '€. Enviado desde la app PC Hardware de Antonio Juan Vera Muñoz';
 		return msg;
 
 	}
@@ -284,7 +284,6 @@ export class PiezadetallePage implements OnInit {
 	regularShare(){
 		
 		let msg = this.componerMsg();
-		// console.log(msg);
 
 		this.socialSharing.share(msg, null, null, null);
 	}
@@ -292,7 +291,6 @@ export class PiezadetallePage implements OnInit {
 	twitterShare(){
 		
 		let msg = this.componerMsg();
-		// console.log(msg);
 
 		this.socialSharing.shareViaTwitter(msg, null, null);
 	}
@@ -300,7 +298,6 @@ export class PiezadetallePage implements OnInit {
 	whatsappShare(){
 		
 		let msg = this.componerMsg();
-		// console.log(msg);
 
 		this.socialSharing.shareViaWhatsApp(msg, null, null);
 	}

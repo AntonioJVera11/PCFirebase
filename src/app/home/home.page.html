@@ -13,24 +13,23 @@
 
 <ion-content fullscreen>
   <p hidden>{{ userUID }}</p>
-  <h1>LISTA DE PIEZAS</h1>
+  <h1 align="center">LISTA DE PIEZAS</h1>
   <ion-list>
     <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="navigateToPiezaDetalle(documentPiezas.id)">
       <ion-grid>
+        <img [src]="documentPiezas.data.foto" alt="" width="100px" height="100px">
         <ion-row>
           <h2>
             <ion-icon name="laptop"></ion-icon> {{documentPiezas.data.tipo}}
           </h2>
         </ion-row>
         <ion-row>
-          <p>
             <ion-icon name="keypad"></ion-icon> {{documentPiezas.data.modelo}}
-          </p>
         </ion-row>
         <ion-row>
-          <p>
             <ion-icon name="star-outline"></ion-icon> {{documentPiezas.data.valoracion}}
-          </p>
+        </ion-row>
+        <ion-row class="imagenprincipal">
         </ion-row>
       </ion-grid>
     </ion-item>
