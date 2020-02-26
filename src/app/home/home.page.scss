@@ -3,21 +3,23 @@ ion-header > ion-toolbar {
     color: rgb(255, 255, 255);
 }
 
-ion-title {
-    text-align: center;
-}
-
 .button-footer {
     margin: auto;
 }
 
 ion-row {
-    line-height: 100%;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    line-height: 150%;
+}
+
+h1 {
+    font-family: 'Signika', sans-serif;
+    text-shadow: 1px 1px 2px rgb(203, 203, 255);
 }
 
 img {
     float: right; 
-    margin: 0px 0px 5% 5%;
+    margin: 0px 0px 0px 0px;
 }
 
 @media (orientation: landscape) {

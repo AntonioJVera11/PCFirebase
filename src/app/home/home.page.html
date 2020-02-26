@@ -1,12 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Hardware de PC
+      PC Hardware
     </ion-title>
     <ion-buttons slot="end">
-
-      <ion-button title="Cerrar sesión" *ngIf="userUID !== ''" (click)="logout()"><ion-icon name="log-out"></ion-icon></ion-button>
-      <ion-button title="Iniciar Sesión" *ngIf="userUID == ''" (click)="navigateToLogin()"><ion-icon name="log-in"></ion-icon></ion-button>
+      <ion-button title="Cerrar sesión" *ngIf="userUID !== ''" (click)="logout()">
+        <p>Logout</p>
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+      <ion-button title="Iniciar Sesión" *ngIf="userUID == ''" (click)="navigateToLogin()">
+        <p>Login</p>
+        <ion-icon name="log-in"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -20,14 +25,20 @@
         <img [src]="documentPiezas.data.foto" alt="" width="100px" height="100px">
         <ion-row>
           <h2>
-            <ion-icon name="laptop"></ion-icon> {{documentPiezas.data.tipo}}
+            <i class="material-icons">
+              devices_other
+            </i> {{documentPiezas.data.tipo}}
           </h2>
         </ion-row>
         <ion-row>
-            <ion-icon name="keypad"></ion-icon> {{documentPiezas.data.modelo}}
+          <i class="material-icons">
+            perm_device_information
+            </i> {{documentPiezas.data.modelo}}
         </ion-row>
         <ion-row>
-            <ion-icon name="star-outline"></ion-icon> {{documentPiezas.data.valoracion}}
+          <i class="material-icons">
+            star_half
+            </i> {{documentPiezas.data.valoracion}}
         </ion-row>
         <ion-row class="imagenprincipal">
         </ion-row>

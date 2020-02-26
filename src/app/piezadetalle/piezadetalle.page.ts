@@ -193,11 +193,11 @@ export class PiezadetallePage implements OnInit {
 	async uploadImagePicker() {
 		// Mensaje de espera mientras se sube la imagen
 		const loading = await this.loadingController.create({
-			message: 'Please wait...'
+			message: 'Espera mientras se sube la imagen...'
 		});
 		// Mensaje de finalización de subida de la imagen
 		const toast = await this.toastController.create({
-			message: 'Image was updated successfully',
+			message: 'La imagen ha sido añadida correctamente',
 			duration: 3000
 		});
 		// Comprobar si la aplicación tiene permisos de lectura
@@ -252,7 +252,7 @@ export class PiezadetallePage implements OnInit {
 
 	async deleteFile(fileURL) {
 		const toast = await this.toastController.create({
-			message: 'File was deleted successfully',
+			message: 'La imagen ha sido eliminada.',
 			duration: 3000
 		});
 		this.firestoreService.deleteFileFromURL(fileURL)
@@ -261,6 +261,7 @@ export class PiezadetallePage implements OnInit {
 			}, (err) => {
 				console.log(err);
 			});
+		this.document.data.foto = undefined;
 	}
 
 	

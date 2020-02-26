@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button (click)="navigateToInicio()"></ion-back-button>
     </ion-buttons>
-    <ion-title>Detalle de la pieza seleccionada</ion-title>
+    <ion-title>Registro de la pieza</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,20 @@
   <div>
     <ion-item *ngIf="document.data.foto != undefined">
       <ion-label position="fixed"><strong>Imagen: </strong></ion-label>
-      <img [src]="document.data.foto" alt="" width="100px" height="170px">
+      <img [src]="document.data.foto" alt="" width="100px" height="170px" (click)="uploadImagePicker()">
+      <ion-button [disabled]="userUID === ''" (click)="deleteFile(document.data.foto)">
+        <i class="material-icons">
+          delete_sweep
+        </i>
+      </ion-button>
+    </ion-item>
+    <ion-item *ngIf="document.data.foto == undefined">
+      <ion-label position="fixed"><strong>Añadir foto </strong></ion-label>
+      <ion-button [disabled]="userUID === ''" (click)="uploadImagePicker()">
+        <i class="material-icons">
+          add_a_photo
+        </i>
+      </ion-button>
     </ion-item>
     <ion-text hidden color="medium">Id: {{ id }}</ion-text>
     <ion-item>
@@ -35,6 +48,7 @@
       <ion-input [disabled]="userUID === ''" required [(ngModel)]="document.data.valoracion"></ion-input>
     </ion-item>
     <br>
+    <!-- <p><strong>Registro</strong></p> -->
     <div>
       <ion-buttons>
         <ion-button *ngIf="id == 'nuevo' && userUID !== ''" (click)="alertaInsertar()">
@@ -46,11 +60,16 @@
         <ion-button *ngIf="userUID !== ''" (click)="alertaBorrar()">
           <ion-icon name="trash"></ion-icon>
         </ion-button>
-        <ion-button [disabled]="userUID === ''" (click)="uploadImagePicker()">
-          <ion-icon name="cloud-upload" size="large"></ion-icon>
-        </ion-button>
       </ion-buttons>
-      <br>
+      <!-- <p><strong>Imagen</strong></p>
+      <ion-buttons>
+        <ion-button [disabled]="userUID === ''" (click)="uploadImagePicker()">
+          <i class="material-icons">
+            collections
+          </i>
+        </ion-button>
+      </ion-buttons> -->
+      <p><strong>Comparte en tus redes sociales</strong></p>
       <ion-buttons slot="end">
         <ion-button (click)="regularShare()">
           <ion-icon name="share"></ion-icon>
