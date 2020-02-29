@@ -6,7 +6,7 @@
     <ion-title>Inicia Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<!-- Formulario de inicio de sesión -->
 <ion-content padding class="form-content">
   <form class="form" [formGroup]="validations_form" (ngSubmit)="tryLogin(validations_form.value)">
     <ion-item>
@@ -34,7 +34,7 @@
     <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Inicia sesión</ion-button>
     <label class="error-message">{{errorMessage}}</label>
   </form>
-  
+  <!-- Contenedor del mensaje para ir al registro -->
   <p class="go-to-register">
     ¿Aún no tienes una cuenta? <a (click)="goRegisterPage()">Prueba a crearla aquí.</a>
   </p>

@@ -14,6 +14,14 @@ export class InformacionPage implements OnInit {
   ngOnInit() {
   }
 
+  // Función para llamar al número pasado por parámetro
+  llamar() {
+    this.callNumber.callNumber("652608248", true)
+    .then(res => console.log('Llamada inicializada!', res))
+    .catch(err => console.log('Error lanzando la llamada', err));
+  }
+  
+  // Funciones de enrutamiento
   navigateToInicio() {
     this.router.navigate(["/"]);
   }
@@ -28,12 +36,6 @@ export class InformacionPage implements OnInit {
 
   navigateToAbout() {
     this.router.navigate(["/about/"]);
-  }
-
-  llamar() {
-    this.callNumber.callNumber("652608248", true)
-      .then(res => console.log('Launched dialer!', res))
-      .catch(err => console.log('Error launching dialer', err));
   }
 
 }

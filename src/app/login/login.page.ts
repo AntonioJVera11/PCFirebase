@@ -11,17 +11,19 @@ import { Router } from '@angular/router';
 //export class LoginPage implements OnInit {
 export class LoginPage {
 
+  // Validación del formulario y mensaje de error vacío
   validations_form: FormGroup;
   errorMessage: string = '';
 
+  // Mensaje de validación
   validation_messages = {
    'email': [
-     { type: 'required', message: 'Email is required.' },
-     { type: 'pattern', message: 'Please enter a valid email.' }
+     { type: 'required', message: 'Necesitamos tu email.' },
+     { type: 'pattern', message: 'Introduce un email válido.' }
    ],
    'password': [
-     { type: 'required', message: 'Password is required.' },
-     { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+     { type: 'required', message: 'Necesitamos tu contraseña.' },
+     { type: 'minlength', message: 'La contraseña debe tener al menos 4 caracteres.' }
    ]
  };
 
@@ -31,6 +33,7 @@ export class LoginPage {
     private router: Router
   ) { }
 
+  // Validación de los datos introducidos en el formulario
   ngOnInit() {
     this.validations_form = this.formBuilder.group({
       email: new FormControl('', Validators.compose([
@@ -44,6 +47,7 @@ export class LoginPage {
     });
   }
 
+  // Inicio de sesión
   tryLogin(value){
     this.authService.doLogin(value)
     .then(res => {
@@ -54,6 +58,7 @@ export class LoginPage {
     })
   }
 
+  // Funciones de enrutamiento
   goRegisterPage(){
     this.router.navigate(["/register"]);
   }

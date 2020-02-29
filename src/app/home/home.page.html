@@ -3,6 +3,7 @@
     <ion-title>
       PC Hardware
     </ion-title>
+    <!-- Botones de login y logout en función de si existe ID de usuario -->
     <ion-buttons slot="end">
       <ion-button title="Cerrar sesión" *ngIf="userUID !== ''" (click)="logout()">
         <p>Logout</p>
@@ -17,9 +18,12 @@
 </ion-header>
 
 <ion-content fullscreen>
+  <!-- ID de usuario -->
   <p hidden>{{ userUID }}</p>
+
   <h1 align="center">LISTA DE PIEZAS</h1>
   <ion-list>
+    <!-- Bucle for de craeción de items para cada pieza -->
     <ion-item *ngFor="let documentPiezas of arrayColeccionPiezas" (click)="navigateToPiezaDetalle(documentPiezas.id)">
       <ion-grid>
         <img [src]="documentPiezas.data.foto" alt="" width="100px" height="100px">
@@ -45,12 +49,14 @@
       </ion-grid>
     </ion-item>
   </ion-list>
+  <!-- Botón de creación de pieza -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button *ngIf="userUID !== ''" (click)="navigateToPiezaDetalle('nuevo')" color="primary">
       <ion-icon name="add-circle"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
+<!-- Botones del footer -->
 <ion-footer class="pie">
   <ion-toolbar>
     <ion-buttons class="botones-footer">

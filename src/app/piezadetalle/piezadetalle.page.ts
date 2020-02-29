@@ -26,6 +26,7 @@ export class PiezadetallePage implements OnInit {
 	isLogged: boolean
 
   id=null;
+
   piezaEditando: Piezas;
 
   constructor(private activatedRoute: ActivatedRoute, 
@@ -55,6 +56,7 @@ export class PiezadetallePage implements OnInit {
   ngOnInit() {
   }
 
+  // Función para borrar los datos
   clicBotonBorrar() {
     this.firestoreService.borrar("piezas", this.id).then(() => {
       // Limpiar datos de pantalla
@@ -63,6 +65,7 @@ export class PiezadetallePage implements OnInit {
     this.navigateToInicio();
   }
   
+  // Función para añadir un registro
   clicBotonInsertar() {
     this.firestoreService.insertar("piezas", this.document.data).then(() => {
       console.log('Pieza creada correctamente!');
@@ -72,6 +75,7 @@ export class PiezadetallePage implements OnInit {
     });
   }
 
+  // Función para modificar un registro
   clicBotonModificar() {
     this.firestoreService.actualizar("piezas", this.id, this.document.data).then(() => {
       // Limpiar datos de pantalla
@@ -80,10 +84,12 @@ export class PiezadetallePage implements OnInit {
     })
   }
 
+  // Función de enrutamiento
   navigateToInicio() {
     this.router.navigate(["/"]);
   }
 
+  // Función para crear la alerta antes de confirmar el registro
   async alertaInsertar() {
 		const alert = await this.alertController.create({
 			header: 'Confirmar',
@@ -119,6 +125,7 @@ export class PiezadetallePage implements OnInit {
 		await alert.present();
   }
   
+  // Función para crear la alerta antes de modificar el registro
   async alertaModificar() {
 		const alert = await this.alertController.create({
 			header: 'Confirmar',
@@ -154,6 +161,7 @@ export class PiezadetallePage implements OnInit {
 		await alert.present();
   }
   
+  // Función para crear la alerta antes de borrar el registro
   async alertaBorrar() {
 		const alert = await this.alertController.create({
 			header: 'Confirmar',
@@ -189,7 +197,7 @@ export class PiezadetallePage implements OnInit {
 		await alert.present();
 	}
 
-	
+	// Función para añadir una imagen al registro
 	async uploadImagePicker() {
 		// Mensaje de espera mientras se sube la imagen
 		const loading = await this.loadingController.create({
@@ -250,6 +258,7 @@ export class PiezadetallePage implements OnInit {
 			});
 	}
 
+	// Función para borrar la imagen del registro
 	async deleteFile(fileURL) {
 		const toast = await this.toastController.create({
 			message: 'La imagen ha sido eliminada.',
@@ -264,13 +273,14 @@ export class PiezadetallePage implements OnInit {
 		this.document.data.foto = undefined;
 	}
 
-	
+	// Función para componer el mensaje al compartir
 	componerMsg(){
 		var msg = 'La pieza de tipo ' + this.document.data.tipo + ' y modelo ' + this.document.data.modelo + '\n'
 		+ 'ha recibido una valoración de ' + this.document.data.valoracion  + ' por su salida a mercado en ' + this.document.data.fechalanzamiento + ' por el precio de ' + this.document.data.precio + '€. Enviado desde la app PC Hardware de Antonio Juan Vera Muñoz';
 		return msg;
 	}
 
+	// Método para compartir mediante cualquier red social
 	regularShare(){
 		
 		let msg = this.componerMsg();
@@ -278,6 +288,7 @@ export class PiezadetallePage implements OnInit {
 		this.socialSharing.share(msg, null, null, null);
 	}
 
+	// Método para compartir por twitter
 	twitterShare(){
 		
 		let msg = this.componerMsg();
@@ -285,6 +296,7 @@ export class PiezadetallePage implements OnInit {
 		this.socialSharing.shareViaTwitter(msg, null, null);
 	}
 
+	// Método para compartir por WhatsApp
 	whatsappShare(){
 		
 		let msg = this.componerMsg();
@@ -292,6 +304,7 @@ export class PiezadetallePage implements OnInit {
 		this.socialSharing.shareViaWhatsApp(msg, null, null);
 	}
 
+	// Método para controlar el login
 	ionViewDidEnter() {
 		this.isLogged = false;
 		this.afAuth.user.subscribe(user => {

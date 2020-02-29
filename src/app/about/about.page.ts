@@ -15,12 +15,12 @@ export class AboutPage implements OnInit {
 
   constructor(private router: Router) { }
 
-    // The below function is added
-    ionViewDidEnter(){
-      this.loadMap();
-    }
-   // The below function is added
-   loadMap() {
+  ionViewDidEnter(){
+    this.loadMap();
+  }
+
+  // Función que cargará el mapa 
+  loadMap() {
     this.map = new Map("mapId").setView([36.679617, -5.444745], 15);
     tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       { attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY- SA</a>' })
@@ -33,6 +33,7 @@ export class AboutPage implements OnInit {
   ngOnInit() {
   }
 
+  // Funciones de enrutamiento
   navigateToInicio() {
     this.router.navigate(["/"]);
   }

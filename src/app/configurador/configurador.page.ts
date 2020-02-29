@@ -13,6 +13,7 @@ export class ConfiguradorPage implements OnInit {
   ngOnInit() {
   }
 
+  // Funciones de enrutamiento
   navigateToInicio() {
     this.router.navigate(["/"]);
   }
